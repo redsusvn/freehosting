@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreeHosting - Free Non-Profit Web Hosting</title>
+    <meta name="description" content="Get powerful, completely free web hosting for your project. FreeHosting offers 5GB SSD storage, unlimited bandwidth, and a free subdomain. No ads, no fees. Claim your account now!">
+    <meta name="keywords" content="free web hosting, powerful web hosting, cPanel hosting, unlimited bandwidth, free subdomain, launch website, affordable hosting, SSD hosting, 99.9% uptime, MySQL, PostgreSQL, PHP hosting, free website, free web hosting, free hosting, non-profit hosting, student web hosting, free website hosting, free cpanel hosting, free php mysql hosting, unlimited bandwidth hosting, free hosting with ssd storage, no ads free hosting, reliable free web hosting, free hosting for personal website">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0f1f;
+            color: #e0e0e0;
+            overflow-x: hidden;
+        }
+        #hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        .glass-card {
+            background: rgba(17, 24, 39, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-8px) translateZ(10px);
+            box-shadow: 0 20px 40px -10px rgba(251, 146, 60, 0.2);
+            border-color: rgba(251, 146, 60, 0.5);
+        }
+        .glow-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .glow-btn:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(circle, rgba(251, 146, 60, 0.4), transparent 70%);
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.8s ease;
+        }
+        .glow-btn:hover:before {
+            transform: translate(-50%, -50%) scale(1);
+        }
+        .glow-btn:hover {
+            box-shadow: 0 0 20px 5px rgba(251, 146, 60, 0.3);
+        }
+        .scroll-animation {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+        .scroll-animation.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .faq-item {
+            transition: all 0.4s ease-in-out;
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out, padding 0.5s ease;
+            padding: 0 1.5rem;
+        }
+        .faq-item.open .faq-answer {
+            max-height: 500px;
+            padding: 0 1.5rem 1.5rem;
+        }
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+        .faq-item.open .faq-icon {
+            transform: rotate(135deg);
+        }
+        .cta-gradient {
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+        }
+        .modal-overlay {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            transform: scale(0.95);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        .modal-overlay.open .modal-content {
+            transform: scale(1);
+            opacity: 1;
+        }
+        .input-field {
+            background-color: #1f2937;
+            border: 1px solid #4b5563;
+        }
+    </style>
+</head>
+<body class="hero-bg">
+<div class="gtranslate_wrapper"></div>
+<script>window.gtranslateSettings = {"default_language":"en","wrapper_selector":".gtranslate_wrapper"}</script>
+<script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+    <header class="fixed top-0 left-0 right-0 z-50 bg-slate-900/50 backdrop-blur-lg border-b border-slate-800">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-white">
+                Free<span class="text-blue-500">Hosting</span>
+            </h1>
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="#features" class="text-gray-300 hover:text-orange-400 transition-colors duration-300">Features</a>
+                <a href="#pricing" class="text-gray-300 hover:text-orange-400 transition-colors duration-300">Pricing</a>
+                <a href="#why-us" class="text-gray-300 hover:text-orange-400 transition-colors duration-300">Why Us</a>
+                <a href="#faq" class="text-gray-300 hover:text-orange-400 transition-colors duration-300">FAQ</a>
+            </nav>
+            <a href="#pricing" id="header-get-started-btn" class="glow-btn bg-orange-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-orange-600 shadow-lg shadow-orange-500/20">
+                Get Started Free
+            </a>
+
+        </div>
+    </header>
+
+    <main class="pt-24">
+        <section class="relative min-h-screen flex items-center justify-center overflow-hidden text-center px-4">
+            <canvas id="hero-canvas"></canvas>
+            <div class="relative z-10 max-w-4xl mx-auto">
+                <div class="scroll-animation">
+                    <h2 class="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-4" style="text-shadow: 0 0 20px rgba(0,0,0,0.5);">
+                        Powerful, <span class="text-blue-500">Free Hosting</span> for a Better World.
+                    </h2>
+                    <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-8">
+                        A non-profit initiative providing robust, free hosting to empower creators, students, and organizations. No hidden fees, no ads, just pure performance.
+                    </p>
+                    <div class="flex justify-center gap-4">
+                        <a href="#pricing" id="hero-claim-hosting-btn" class="glow-btn bg-orange-500 text-white font-bold py-3 px-8 rounded-lg hover:bg-orange-600 transition-all duration-300 shadow-lg shadow-orange-500/30 text-lg">
+                            Claim Your Hosting
+                        </a>
+                        <a href="#features" class="bg-gray-700/50 backdrop-blur-sm border border-gray-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-gray-600 transition-all duration-300 text-lg">
+                            Explore Features
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="py-20 sm:py-32">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 scroll-animation">
+                    <h3 class="text-4xl md:text-5xl font-extrabold text-white">Everything You Need, and More.</h3>
+                    <p class="text-lg text-gray-400 mt-4 max-w-2xl mx-auto">We provide a comprehensive set of features, completely free of charge.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" style="perspective: 1000px;">
+                    <div class="glass-card p-8 rounded-2xl scroll-animation">
+                        <div class="flex items-center justify-center h-16 w-16 mb-6 rounded-full bg-blue-500/10 border border-blue-500/30"><svg class="w-8 h-8 text-blue-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 17.25v-.228a4.5 4.5 0 00-.12-1.03l-2.268-9.64a3.375 3.375 0 00-3.285-2.65H7.923a3.375 3.375 0 00-3.285 2.65l-2.268 9.64a4.5 4.5 0 00-.12 1.03v.228m19.5 0a3 3 0 01-3 3H5.25a3 3 0 01-3-3m19.5 0a3 3 0 00-3-3H5.25a3 3 0 00-3 3m16.5 0h.008v.008h-.008v-.008z" /></svg></div>
+                        <h4 class="text-2xl font-bold text-white mb-2">5GB SSD Storage</h4>
+                        <p class="text-gray-400">Blazing-fast SSDs to ensure your website loads at lightning speed.</p>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl scroll-animation" style="transition-delay: 100ms;">
+                        <div class="flex items-center justify-center h-16 w-16 mb-6 rounded-full bg-blue-500/10 border border-blue-500/30"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="infinity" class="lucide lucide-infinity w-8 h-8 text-teal-500"><path d="M6 16c5 0 7-8 12-8a4 4 0 0 1 0 8c-5 0-7-8-12-8a4 4 0 1 0 0 8"></path></svg></div>
+                        <h4 class="text-2xl font-bold text-white mb-2">Unlimited Bandwidth</h4>
+                        <p class="text-gray-400">Never worry about traffic spikes. We provide unmetered bandwidth.</p>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl scroll-animation" style="transition-delay: 200ms;">
+                        <div class="flex items-center justify-center h-16 w-16 mb-6 rounded-full bg-blue-500/10 border border-blue-500/30"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="globe" class="lucide lucide-globe w-8 h-8 text-purple-500"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg></div>
+                        <h4 class="text-2xl font-bold text-white mb-2">Multiple Domains Supported</h4>
+                        <p class="text-gray-400">Host all your custom domains from a single, powerful account.</p>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl scroll-animation" style="transition-delay: 300ms;">
+                        <div class="flex items-center justify-center h-16 w-16 mb-6 rounded-full bg-blue-500/10 border border-blue-500/30"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="database-zap" class="lucide lucide-database-zap w-8 h-8 text-yellow-500"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M3 5V19A9 3 0 0 0 15 21.84"></path><path d="M21 5V8"></path><path d="M21 12L18 17H22L19 22"></path><path d="M3 12A9 3 0 0 0 14.59 14.87"></path></svg></div>
+                        <h4 class="text-2xl font-bold text-white mb-2">100 Databases</h4>
+                        <p class="text-gray-400">Power complex applications with up to 100 MySQL databases.</p>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl scroll-animation" style="transition-delay: 400ms;">
+                        <div class="flex items-center justify-center h-16 w-16 mb-6 rounded-full bg-blue-500/10 border border-blue-500/30"><svg class="w-8 h-8 text-blue-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" /></svg></div>
+                        <h4 class="text-2xl font-bold text-white mb-2">Free Subdomain</h4>
+                        <p class="text-gray-400">Get started instantly with a free subdomain.</p>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl scroll-animation" style="transition-delay: 500ms;">
+                        <div class="flex items-center justify-center h-16 w-16 mb-6 rounded-full bg-blue-500/10 border border-blue-500/30"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="layout-dashboard" class="lucide lucide-layout-dashboard w-8 h-8 icon-accent"><rect width="7" height="9" x="3" y="3" rx="1"></rect><rect width="7" height="5" x="14" y="3" rx="1"></rect><rect width="7" height="9" x="14" y="12" rx="1"></rect><rect width="7" height="5" x="3" y="16" rx="1"></rect></svg></div>
+                        <h4 class="text-2xl font-bold text-white mb-2">Easy Control Panel</h4>
+                        <p class="text-gray-400">Manage your website effortlessly with our intuitive and user-friendly control panel.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" class="py-20 sm:py-32">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12 scroll-animation">
+                    <h3 class="text-4xl md:text-5xl font-extrabold text-white">Simple, Transparent, and Free!</h3>
+                    <p class="text-lg text-gray-400 mt-4 max-w-2xl mx-auto">No complicated plans. Just one awesome free hosting package to get you started.</p>
+                </div>
+                <div class="max-w-md mx-auto scroll-animation">
+                    <div class="glass-card rounded-2xl p-8 border-2 border-orange-500/50 shadow-2xl shadow-orange-500/10">
+                        <h4 class="text-3xl font-bold text-white text-center">Free Hosting</h4>
+                        <p class="text-center text-5xl font-extrabold text-white my-4">$0<span class="text-lg font-medium text-gray-400">/month</span></p>
+                        <ul class="space-y-4 my-8 text-gray-300">
+                            <li class="flex items-center"><svg class="w-6 h-6 text-blue-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>5GB SSD Storage</li>
+                            <li class="flex items-center"><svg class="w-6 h-6 text-blue-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Unlimited Bandwidth</li>
+                            <li class="flex items-center"><svg class="w-6 h-6 text-blue-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Unlimited Custom Domains</li>
+                            <li class="flex items-center"><svg class="w-6 h-6 text-blue-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>100 Databases</li>
+                            <li class="flex items-center"><svg class="w-6 h-6 text-blue-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Free Subdomain</li>
+                             
+                        </ul>
+                        <button id="claim-hosting-btn" class="w-full text-center block glow-btn bg-orange-500 text-white font-bold py-4 px-8 rounded-lg hover:bg-orange-600 transition-all duration-300 shadow-lg shadow-orange-500/30 text-lg">
+                            Claim Your Free Hosting
+                        </button>
+                        <p class="text-center text-gray-500 text-sm mt-4">Forever free, no credit card required.</p>
+                    </div>
+                        <p align="center" class="text-xs text-gray-500 mt-1">By using our service, you are agreeing to Byet's
+                            <a href="https://byet.host/terms-of-service" target="_blank" rel="noopener noreferrer">Terms Of Service</a> and
+                            <a href="https://byet.host/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.
+                        </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-us" class="py-20 sm:py-32 bg-slate-900/40">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 scroll-animation">
+                    <h3 class="text-4xl md:text-5xl font-extrabold text-white">Why Choose our free hosting?</h3>
+                    <p class="text-lg text-gray-400 mt-4 max-w-2xl mx-auto">We're more than just free hosting. We're a non-profit project that help you create your own space on the internet.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="scroll-animation">
+                        <div class="glass-card rounded-xl shadow-2xl overflow-hidden">
+                             <div class="bg-slate-800 p-2 flex items-center">
+                                 <div class="flex space-x-1.5">
+                                     <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                     <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                     <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                                 </div>
+                                 <p class="text-sm text-slate-400 ml-4">VistaPanel</p>
+                             </div>
+                            <img src="https://i.imgur.com/qOye3mw.jpeg" alt="Hosting control panel screenshot" class="w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400';">
+                        </div>
+                    </div>
+                    <div class="space-y-8 scroll-animation" style="transition-delay: 200ms;">
+                        <div class="flex items-start">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 h-12 w-12 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                </div>
+                            <div class="ml-4">
+                                <h4 class="text-xl font-bold text-white">Free Service Powered</h4>
+                                <p class="text-gray-400 mt-1">Built and maintained by free service provider. No need complicated service, just all in one solution that free and easy to use.</p>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 h-12 w-12 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center"><svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg></div>
+                            <div class="ml-4">
+                                <h4 class="text-xl font-bold text-white">Build In Script Installer</h4>
+                                <p class="text-gray-400 mt-1">With Softaculous Installer, you can easily install Wordpress, CMS application and 400+ scripts with just a few clicks. No complicated coding knowledge, just a simple all-in-one solution that free and easy designed for you.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                             <div class="flex-shrink-0 h-12 w-12 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center"><svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+                            <div class="ml-4">
+                                <h4 class="text-xl font-bold text-white">Unlimited Usage Time</h4>
+                                <p class="text-gray-400 mt-1">You can stay with us as much as you want, create as much website as you need without worry and fear of your project will gone someday. We promise to help your website up and running as long as you want with no ads, no pay, no data selling and no spam email.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="py-20 sm:py-32">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <div class="text-center mb-16 scroll-animation">
+                    <h3 class="text-4xl md:text-5xl font-extrabold text-white">Frequently Asked Questions</h3>
+                </div>
+                <div class="space-y-4 scroll-animation">
+                    <div class="faq-item glass-card rounded-lg cursor-pointer">
+                        <div class="faq-question flex justify-between items-center p-6">
+                            <h4 class="text-xl font-semibold text-white">Is this hosting really free forever?</h4>
+                            <div class="faq-icon text-orange-400 text-3xl font-thin transform-gpu">+</div>
+                        </div>
+                        <div class="faq-answer text-gray-400">
+                            <p>Yes! As a non-profit project, our mission is to provide free resources to the community. Our core free hosting package will remain free forever. We are sustained by free service provider like iFastNet (Hosting provider), Render (Web service provider) and CloudFlare (Anti-ddos and DNS management).</p>
+                        </div>
+                    </div>
+                    <div class="faq-item glass-card rounded-lg cursor-pointer">
+                        <div class="faq-question flex justify-between items-center p-6">
+                            <h4 class="text-xl font-semibold text-white">What are the limitations?</h4>
+                            <div class="faq-icon text-orange-400 text-3xl font-thin transform-gpu">+</div>
+                        </div>
+                        <div class="faq-answer text-gray-400">
+                            <p>Our free plan is incredibly generous but is designed for personal projects, portfolios, and small organizations. It is not suitable for high-traffic commercial sites. We have fair use policies on CPU and daily hit usage to ensure the platform is stable for everyone. Prohibited usage will be terminated (See Byet's Terms Of Services). Also our hosting have limited daily hit usage, and it does not support email, PHP version selection, DNS management, remote MySQL server and Python/Node.JS</p>
+                        </div>
+                    </div>
+                    <div class="faq-item glass-card rounded-lg cursor-pointer">
+                        <div class="faq-question flex justify-between items-center p-6">
+                            <h4 class="text-xl font-semibold text-white">Can I use my own custom domain name?</h4>
+                            <div class="faq-icon text-orange-400 text-3xl font-thin transform-gpu">+</div>
+                        </div>
+                        <div class="faq-answer text-gray-400">
+                            <p>Absolutely!
+While we provide a free subdomain (based on your chosen username and subdomain), you can easily point your own custom domain (e.g., `yourwebsite.com`) to your hosting account with us.
+<br><br>To do this, please set your domain nameservers at your domain registrar to ours:
+                            <br><strong class="font-mono">ns1.lightnode.qzz.io</strong> <br><strong class="font-mono">ns2.lightnode.qzz.io</strong> <br><br>After setting the nameservers and your account is active, you can add your custom domain via the 'Addon Domain' section in your hosting control panel.
+Further instructions are available in our control panel.</p>
+                        </div>
+                    </div>
+                     <div class="faq-item glass-card rounded-lg cursor-pointer">
+                        <div class="faq-question flex justify-between items-center p-6">
+                            <h4 class="text-xl font-semibold text-white">What kind of support do you offer?</h4>
+                            <div class="faq-icon text-orange-400 text-3xl font-thin transform-gpu">+</div>
+                        </div>
+                        <div class="faq-answer text-gray-400">
+                            <p>At this point we don't offer any support method, so its all on you, try to fix your problem by yourself, we know you can do it ദ്ദി(˵ •̀ ᴗ - ˵ ) ✧</p>
+                        </div>
+                    </div>
+                     <div class="faq-item glass-card rounded-lg cursor-pointer">
+                        <div class="faq-question flex justify-between items-center p-6">
+                            <h4 class="text-xl font-semibold text-white">What kind of website can I host?</h4>
+                            <div class="faq-icon text-orange-400 text-3xl font-thin transform-gpu">+</div>
+                        </div>
+                        <div class="faq-answer text-gray-400">
+                            <p>You can host most types of websites, including personal blogs, portfolios, small business sites, and forums. We support HTML, CSS, JavaScript, PHP, and MySQL. Please refer to our Terms of Service for any content restrictions.</p>
+                        </div>
+                    </div>
+                     <div class="faq-item glass-card rounded-lg cursor-pointer">
+                        <div class="faq-question flex justify-between items-center p-6">
+                            <h4 class="text-xl font-semibold text-white">What if I need more resources?</h4>
+                            <div class="faq-icon text-orange-400 text-3xl font-thin transform-gpu">+</div>
+                        </div>
+                        <div class="faq-answer text-gray-400">
+                            <p>While our free plan is generous, we understand that some projects grow. If you need more resources, you can create more hosting account. Note that one email can create 3 hosting account.</p>
+                        </div>
+                    </div>
+                    <p align="center" class="text-xs text-gray-500 mt-1">For more infomation, please read Byet's
+                        <a href="https://byet.host/terms-of-service" target="_blank" rel="noopener noreferrer">Terms Of Service</a> and
+                        <a href="https://byet.host/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 sm:py-24">
+            <div class="container mx-auto px-6">
+                <div class="scroll-animation cta-gradient rounded-2xl p-10 md:p-16 text-center shadow-2xl shadow-blue-500/20">
+                    <h3 class="text-4xl md:text-5xl font-extrabold text-white">Ready to Go Live?</h3>
+                    <p class="text-lg text-indigo-200 mt-4 max-w-2xl mx-auto">Join thousands of happy users and launch your website with us today. It's fast, easy, and completely free!</p>
+                    <a href="#pricing" class="mt-8 inline-block bg-yellow-400 text-gray-900 font-bold py-4 px-10 rounded-lg hover:bg-yellow-300 transition-all duration-300 shadow-lg text-lg">
+                        Sign Up Now - It's Free!
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-900/40 border-t border-slate-800">
+        <div class="container mx-auto px-6 py-16">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-2 md:col-span-1">
+                    <h1 class="text-2xl font-bold text-white">
+                        Free<span class="text-blue-500">Hosting</span>
+                    </h1>
+                    <p class="mt-4 text-gray-400 text-sm">A non-profit project dedicated to an open and accessible web for everyone. This project is a part of MyOwnFreeHost - a free hosting provider made by Byet.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white tracking-wider">Platform</h4>
+                    <ul class="mt-4 space-y-3">
+                        <li><a href="#features" class="text-gray-400 hover:text-orange-400 transition-colors">Features</a></li>
+                        <li><a href="#pricing" class="text-gray-400 hover:text-orange-400 transition-colors">Pricing</a></li>
+                        <li><a href="#why-us" class="text-gray-400 hover:text-orange-400 transition-colors">Why Us</a></li>
+                        <li><a href="https://cpanel.lightnode.qzz.io/" class="text-gray-400 hover:text-orange-400 transition-colors">Login Panel</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white tracking-wider">Community & Donation</h4>
+                    <ul class="mt-4 space-y-3">
+                        <li><a href="#faq" class="text-gray-400 hover:text-orange-400 transition-colors">Not available</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white tracking-wider">Legal (Byet)</h4>
+                    <ul class="mt-4 space-y-3">
+                        <li><a href="https://byet.host/terms-of-service" class="text-gray-400 hover:text-orange-400 transition-colors">Terms Of Service</a></li>
+                        <li><a href="https://byet.host/privacy-policy" class="text-gray-400 hover:text-orange-400 transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-slate-800 flex flex-col sm:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm">&copy; 2025 FreeHosting. Built with passion by @redsus.vn. Powered by iFastNet (Hosting provider), Render (Web service provider) and CloudFlare (Anti-ddos and DNS management).</p>
+
+            </div>
+        </div>
+    </footer>
+
+    <div id="registration-modal" class="modal-overlay fixed inset-0 z-50 bg-black bg-opacity-70 flex items-center justify-center p-4">
+        <div class="modal-content glass-card rounded-2xl w-full max-w-lg shadow-2xl shadow-blue-500/20 overflow-hidden">
+            
+            <div id="screen-form" class="">
+                <div class="p-8">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-2xl font-bold text-white">Claim Your Free Hosting</h3>
+                        <button id="modal-close-btn" class="text-gray-500 hover:text-white transition-colors">&times;</button>
+                    </div>
+                    <form id="hosting-form" class="space-y-4">
+                        <div>
+                            <label for="username" class="block text-sm font-medium text-gray-300 mb-1">Desired Username (8 characters max!!!)</label>
+                            <input type="text" id="username" name="username" maxlength="8" class="w-full p-3 rounded-lg text-white input-field focus:ring-2 focus:ring-orange-500 focus:outline-none" required>
+                            <p class="text-xs text-gray-500 mt-1">This will be your subdomain (e.g., <span class="font-mono">your-username</span>.acn.qzz.io). Use only letters and numbers. Don't worry, you still be able to get a new subdomain inside the panel using the 'Sub Domain' setting.</p>
+                        </div>
+                        <div>
+                            <label for="password" class="block text-sm font-medium text-gray-300 mb-1">Password</label>
+                            <input type="password" id="password" name="password" class="w-full p-3 rounded-lg text-white input-field focus:ring-2 focus:ring-orange-500 focus:outline-none" required>
+                            <p class="text-xs text-gray-500 mt-1">Choose a strong password to keep your account secure.</p>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Your Email Address</label>
+                            <input type="email" id="email" name="email" class="w-full p-3 rounded-lg text-white input-field focus:ring-2 focus:ring-orange-500 focus:outline-none" required>
+                            <p class="text-xs text-gray-500 mt-1">This email will help you set a new password in case if you forget it. No spam, ever.</p>
+                        </div>
+                        <div>
+                            <label for="subdomain" class="block text-sm font-medium text-gray-300 mb-1">Subdomain</label>
+                            <select id="subdomain" name="subdomain" class="w-full p-3 rounded-lg text-white input-field focus:ring-2 focus:ring-orange-500 focus:outline-none">
+                                <option>lightnode.qzz.io</option>
+                                <option>krl.dpdns.org</option>
+                                <option>adz.qzz.io</option>
+                                <option selected>acn.qzz.io</option>
+                            </select>
+                            <p class="text-xs text-gray-500 mt-1">Choose the domain extension for your free website.</p>
+                        </div>
+                        <div class="pt-4">
+                            <button type="submit" class="w-full text-center block glow-btn bg-orange-500 text-white font-bold py-3 px-8 rounded-lg hover:bg-orange-600 transition-all duration-300 shadow-lg shadow-orange-500/30 text-lg">
+                                Claim My Free Hosting
+                            </button>
+                            <p class="text-xs text-gray-500 mt-1">By using our service, you are agreeing to Byet's
+                                <a href="https://byet.host/terms-of-service" target="_blank" rel="noopener noreferrer">Terms Of Service</a> and
+                                <a href="https://byet.host/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div id="screen-loading" class="hidden">
+                 <div class="p-8 text-center">
+                    <svg class="animate-spin h-12 w-12 text-orange-500 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    <h3 class="text-2xl font-bold text-white mt-6">Creating Your Account...</h3>
+                    <p class="text-gray-400 mt-2">Please wait a moment while we set things up.</p>
+                </div>
+            </div>
+
+            <div id="screen-success" class="hidden">
+                <div class="p-8 text-center">
+                    <div class="w-20 h-20 mx-auto flex items-center justify-center rounded-full bg-green-500/20 border border-green-500/50">
+                        <svg class="w-12 h-12 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
+                    <h3 class="text-3xl font-bold text-white mt-6">Congratulations!</h3>
+                    <p class="text-gray-400 mt-2 mb-6">Your free hosting account is ready. Here are your details:</p>
+                    
+                    <div class="text-left space-y-3 bg-slate-800/50 p-4 rounded-lg">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-sm text-gray-400">Username:</span>
+                                <p id="success-username" class="font-mono text-white"></p>
+                            </div>
+                            <button data-copy-target="success-username" class="copy-btn bg-slate-700 hover:bg-slate-600 text-sm text-white font-bold py-1 px-3 rounded-md transition-colors">Copy</button>
+                        </div>
+                        <div class="flex justify-between items-center">
+                             <div>
+                                <span class="text-sm text-gray-400">Password:</span>
+                                <p id="success-password" class="font-mono text-white"></p>
+                            </div>
+                            <button data-copy-target="success-password" class="copy-btn bg-slate-700 hover:bg-slate-600 text-sm text-white font-bold py-1 px-3 rounded-md transition-colors">Copy</button>
+                        </div>
+                    </div>
+
+                    <div class="mt-8">
+                         <a id="success-panel-link" href="#" target="_blank" class="w-full text-center block glow-btn bg-blue-500 text-white font-bold py-3 px-8 rounded-lg hover:bg-blue-600 transition-all duration-300 shadow-lg shadow-blue-500/30 text-lg">
+                            Go to Control Panel
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="screen-error" class="hidden">
+                 <div class="p-8 text-center">
+                    <div class="w-20 h-20 mx-auto flex items-center justify-center rounded-full bg-red-500/20 border border-red-500/50">
+                        <svg class="w-12 h-12 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    </div>
+                    <h3 class="text-3xl font-bold text-white mt-6">Something Went Wrong</h3>
+                    <p class="text-gray-400 mt-2 mb-6">We couldn't create your account. Please double-check your information. The username might already be taken, or you may have used invalid characters.</p>
+                    <div class="mt-8">
+                         <button id="error-back-btn" class="w-full text-center block glow-btn bg-orange-500 text-white font-bold py-3 px-8 rounded-lg hover:bg-orange-600 transition-all duration-300 shadow-lg shadow-orange-500/30 text-lg">
+                            Try Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll('.scroll-animation');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            animatedElements.forEach(el => observer.observe(el));
+
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    const isOpen = item.classList.contains('open');
+                    faqItems.forEach(i => i.classList.remove('open'));
+                    if (!isOpen) {
+                        item.classList.add('open');
+                    }
+                });
+            });
+
+            const modal = document.getElementById('registration-modal');
+            const claimBtn = document.getElementById('claim-hosting-btn');
+            const headerGetStartedBtn = document.getElementById('header-get-started-btn'); // New
+            const heroClaimHostingBtn = document.getElementById('hero-claim-hosting-btn');   // New
+            const closeBtn = document.getElementById('modal-close-btn');
+            const hostingForm = document.getElementById('hosting-form');
+            const errorBackBtn = document.getElementById('error-back-btn');
+            
+            const screens = {
+                form: document.getElementById('screen-form'),
+                loading: document.getElementById('screen-loading'),
+                success: document.getElementById('screen-success'),
+                error: document.getElementById('screen-error'),
+            };
+
+            function showScreen(screenName) {
+                Object.values(screens).forEach(screen => screen.classList.add('hidden'));
+                screens[screenName].classList.remove('hidden');
+            }
+
+            function openModal() {
+                showScreen('form');
+                modal.classList.add('open');
+            }
+
+            function closeModal() {
+                modal.classList.remove('open');
+            }
+
+            claimBtn.addEventListener('click', openModal);
+            headerGetStartedBtn.addEventListener('click', openModal); 
+            heroClaimHostingBtn.addEventListener('click', openModal);   
+            
+            closeBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+            errorBackBtn.addEventListener('click', () => showScreen('form'));
+
+            hostingForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                showScreen('loading');
+
+                const formData = new FormData(hostingForm);
+                const username = formData.get('username');
+                const password = formData.get('password');
+                const email = formData.get('email');
+                const subdomain = formData.get('subdomain');
+                
+                try {
+                    const apiUrl = `https://api.freehosting.qzz.io/createhost?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}&email=${encodeURIComponent(email)}&subdomain=${encodeURIComponent(subdomain)}`;
+                    const response = await fetch(apiUrl);
+                    if (!response.ok) {
+                        throw new Error('Broken api or network error');
+                    }
+                    const data = await response.json();
+                    
+                    if (data && data.result === 'success') {
+                        document.getElementById('success-username').textContent = data.username;
+                        document.getElementById('success-password').textContent = data.password;
+                        document.getElementById('success-panel-link').href = data.login_panel;
+                        showScreen('success');
+                    } else {
+                        throw new Error('API returned an error');
+                    }
+
+                } catch (error) {
+                    console.error('API call failed:', error);
+                    showScreen('error');
+                }
+            });
+
+            document.querySelectorAll('.copy-btn').forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetId = button.dataset.copyTarget;
+                    const targetElement = document.getElementById(targetId);
+                    const textToCopy = targetElement.textContent;
+
+                    const textArea = document.createElement('textarea');
+                    textArea.value = textToCopy;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    try {
+                        document.execCommand('copy');
+                        button.textContent = 'Copied!';
+                        setTimeout(() => { button.textContent = 'Copy'; }, 2000);
+                    } catch (err) {
+                        console.error('Failed to copy text: ', err);
+                    }
+                    document.body.removeChild(textArea);
+                });
+            });
+
+        });
+
+        let scene, camera, renderer, particles;
+        let mouseX = 0, mouseY = 0;
+        let windowHalfX = window.innerWidth / 2;
+        let windowHalfY = window.innerHeight / 2;
+
+        function init() {
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 10000);
+            camera.position.z = 1000;
+
+            const geometry = new THREE.BufferGeometry();
+            const vertices = [];
+            const sprite = new THREE.TextureLoader().load('https://threejs.org/examples/textures/sprites/disc.png');
+
+            for (let i = 0; i < 2000; i++) {
+                const x = 2000 * Math.random() - 1000;
+                const y = 2000 * Math.random() - 1000;
+                const z = 2000 * Math.random() - 1000;
+                vertices.push(x, y, z);
+            }
+
+            geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+
+            const material = new THREE.PointsMaterial({
+                size: 10,
+                sizeAttenuation: true,
+                map: sprite,
+                alphaTest: 0.5,
+                transparent: true
+            });
+            material.color.setHSL(0.6, 0.8, 0.8);
+
+            particles = new THREE.Points(geometry, material);
+            scene.add(particles);
+
+            renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('hero-canvas'), alpha: true });
+            renderer.setPixelRatio(window.devicePixelRatio);
+            renderer.setSize(window.innerWidth, window.innerHeight);
+
+            document.addEventListener('mousemove', onDocumentMouseMove, false);
+            window.addEventListener('resize', onWindowResize, false);
+        }
+
+        function onWindowResize() {
+            windowHalfX = window.innerWidth / 2;
+            windowHalfY = window.innerHeight / 2;
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+
+        function onDocumentMouseMove(event) {
+            mouseX = event.clientX - windowHalfX;
+            mouseY = event.clientY - windowHalfY;
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            render();
+        }
+
+        function render() {
+            const time = Date.now() * 0.00005;
+            camera.position.x += (mouseX - camera.position.x) * 0.05;
+            camera.position.y += (-mouseY - camera.position.y) * 0.05;
+            camera.lookAt(scene.position);
+
+            const h = (360 * (0.6 + time) % 360) / 360;
+            particles.material.color.setHSL(h, 0.8, 0.8);
+
+            scene.rotation.y = time * 0.3;
+            
+            renderer.render(scene, camera);
+        }
+
+        init();
+        animate();
+    </script>
+
+</body>
+</html>
