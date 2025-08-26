@@ -1,0 +1,349 @@
+:root {
+  --hostom-text: #6e6b70;
+  --hostom-white: #00003B;
+  --hostom-secondary3: #FB542D;
+  --hostom-base: #fff;
+  --hostom-black: #fff;
+  --hostom-black3:#121246;
+  --hostom-black4: #121013;
+  --hostom-gray: #1c1a1d;
+  --hostom-border-color: #3D3D7C;
+  --hostom-gray2:#3D3D7C;
+  --hostom-gray3:#787880;
+  --hostom-blue3:#8A8ABC;
+}
+
+.sticky-header--cloned {
+  box-shadow: 0px 3px 18px rgba(255, 255, 255, 0.07);
+}
+
+.main-header__right__social a,
+.main-header__right__info a {
+  color: var(--hostom-base) !important;
+}
+
+.main-header__right__btn {
+  background: var(--hostom-base);
+  color: var(--hostom-white);
+}
+.main-header__right__btn:hover {
+  color: var(--hostom-base);
+}
+
+.main-header--one .main-menu .main-menu__list > li:hover > a {
+  color: var(--hostom-base);
+}
+
+.hero-one {
+  background: var(--hostom-white);
+}
+.hero-one .hero-one__title {
+  color: var(--hostom-base);
+}
+.hero-one .hostom-btn {
+  color: var(--hostom-white);
+}
+.hero-one .hostom-btn::before {
+  background-color: var(--hostom-secondary3);
+}
+.hero-one .hostom-btn:hover {
+  color: var(--hostom-base);
+}
+
+.domain-name .domain-name__inner {
+  background-color: var(--hostom-white);
+  box-shadow: 0px 4px 40px 0px rgba(0, 0, 0, 0.2);
+}
+.domain-name .domain-name__form__item input[type=text] {
+  border: 1px solid var(--hostom-border-color);
+}
+.domain-name .domain-name__form__item input[type=text]::placeholder {
+  color: var(--hostom-blue3);
+}
+.domain-name .domain-name__form__item button {
+  color: var(--hostom-base);
+}
+.domain-name .domain-name__form__item button:hover {
+  color: var(--hostom-white);
+}
+
+.service-one .sec-title__tagline,
+.service-one .sec-title__title,
+.service-one .service-one__top__text,
+.service-one .service-one__card__title,
+.service-one .service-one__card__text {
+  color: var(--hostom-white);
+}
+.service-one .hostom-btn,
+.service-one .service-one__card__icon {
+  background: var(--hostom-white);
+  color: var(--hostom-base);
+}
+.service-one .service-one__card {
+  background: var(--hostom-base);
+}
+
+.package-one .package-card {
+  background: var(--hostom-black3);
+}
+.package-one .package-card:hover .package-card__body__pricing-plan,
+.package-one .package-card:hover .package-card__body__price,
+.package-one .package-card:hover .package-card__body__price__month,
+.package-one .package-card:hover .package-card__content__list__item {
+  color: var(--hostom-white);
+}
+.package-one .package-card:hover .package-card__content__list__item::before {
+  color: var(--hostom-base);
+}
+.package-one .package-card__body {
+  border-bottom: 1px solid var(--hostom-border-color);
+  border-left: 1px solid var(--hostom-border-color);
+  border-right: 1px solid var(--hostom-border-color);
+}
+.package-one .package-card__head__title {
+  color: var(--hostom-base);
+}
+
+.about-three .about-three__thumb__item__card__item {
+  background: var(--hostom-white);
+}
+.about-three .about-three__thumb__item__card__subtitle,
+.about-three .about-three__thumb__item__card__icon {
+  color: var(--hostom-base);
+}
+.about-three .about-three__thumb__item__card__subtitle i,
+.about-three .about-three__thumb__item__card__icon i {
+  color: currentColor;
+}
+.about-three .about-three__content__box__title,
+.about-three .about-three__content__box__price {
+  color: var(--hostom-white);
+}
+.about-three .hostom-btn {
+  color: var(--hostom-base);
+}
+.about-three .hostom-btn::before {
+  background-color: var(--hostom-base);
+}
+.about-three .hostom-btn:hover {
+  color: var(--hostom-white);
+}
+
+.funfact-one--home,
+.choose-us-one__thumb,
+.cta-fore__text::before {
+  margin-bottom: 0;
+  background: var(--hostom-white);
+}
+
+.funfact-one__item {
+  position: relative;
+  margin-bottom: -140px;
+  background: var(--hostom-white);
+}
+.funfact-one__item .funfact-one__count {
+  color: var(--hostom-base);
+}
+
+.package-card__content__link .hostom-btn {
+  color: var(--hostom-base);
+}
+.package-card__content__link .hostom-btn::before {
+  background-color: var(--hostom-white);
+}
+
+.benefits-one .hostom-btn {
+  color: var(--hostom-base);
+}
+
+.benefits-one__content__item,
+.benefits-one__inner__btn.active-btn {
+  background-color: var(--hostom-black3);
+}
+
+.benefits-one__inner__btn {
+  background-color: var(--hostom-border-color);
+}
+.benefits-one__inner__btn:hover {
+  background-color: var(--hostom-black3);
+}
+
+.cta-fore__text,
+.control-box-one__item__text,
+.testimonial-two__thumb__name,
+.testimonial-two__quite,
+.demo-one__btn,
+.demo-one__btn:hover {
+  color: var(--hostom-base);
+}
+
+.demo-one__btn:hover::before {
+  background-color: var(--hostom-white);
+}
+
+.footer-widget__links__item::before {
+  background-color: var(--hostom-base);
+}
+
+.footer-widget__links__item:hover a:hover,
+.footer-widget__info__item a:hover {
+  color: var(--hostom-base);
+}
+
+.testimonial-two__text,
+.blog-card-three__date,
+.blog-card__date,
+.cta-fore__text,
+.demo-one__title {
+  color: var(--hostom-white);
+}
+
+.cta-fore .hostom-btn {
+  color: var(--hostom-base);
+}
+.cta-fore .hostom-btn::before {
+  background-color: var(--hostom-white);
+}
+.cta-fore .hostom-btn:hover {
+  color: var(--hostom-base);
+}
+
+.package-card__head,
+.testimonial-two__thumb::before {
+  background-color: var(--hostom-border-color);
+}
+
+.price-page__inner__btn {
+  background-color: var(--hostom-base);
+}
+.price-page__inner__btn:hover {
+  color: var(--hostom-base);
+}
+
+.price-page__inner__btn.active-btn {
+  color: var(--hostom-base);
+}
+
+.footer-widget__text,
+.about-three__top__text,
+.service-two__item__text,
+.choose-us-one__top__text,
+.blog-card-three__text,
+.benefits-one__top__text,
+.benefits-one__list__item,
+.blog-card-three__meta__comment,
+.blog-card-three__content__btn a,
+.blog-card__meta__comment,
+.blog-card__content__btn a,
+.package-card__content__list__item,
+.package-card__body__price__month,
+.sec-title__tagline,
+.main-menu .main-menu__list li ul li > a {
+  color: var(--hostom-blue3);
+}
+
+.service-two {
+  background: var(--hostom-black3);
+}
+.service-two .sec-title__title {
+  color: var(--hostom-base);
+}
+.service-two .service-two__item__title {
+  color: var(--hostom-base);
+}
+.service-two .service-two__item:hover .service-two__item__title,
+.service-two .service-two__item:hover .service-two__item__text {
+  color: var(--hostom-white);
+}
+.service-two .hostom-btn {
+  color: var(--hostom-base);
+}
+
+.control-box-one__item,
+.control-box-one__item__icon {
+  background: var(--hostom-border-color);
+}
+.control-box-one__item .hostom-btn,
+.control-box-one__item__icon .hostom-btn {
+  color: var(--hostom-base);
+}
+
+.testimonial-two .owl-nav .owl-prev span, .testimonial-two .owl-nav .owl-next span {
+  color: var(--hostom-white);
+  border: 1px solid var(--hostom-base);
+}
+.testimonial-two .owl-nav .owl-prev span:hover, .testimonial-two .owl-nav .owl-next span:hover {
+  background: var(--hostom-base);
+  color: var(--hostom-white);
+}
+
+.choose-us-one {
+  background: var(--hostom-white);
+}
+.choose-us-one .choose-us-one__inner {
+  background: var(--hostom-black3);
+}
+.choose-us-one .sec-title .sec-title__title {
+  color: var(--hostom-base);
+}
+.choose-us-one .choose-us-one__feature__icon {
+  background: var(--hostom-white);
+}
+.choose-us-one .choose-us-one__feature__title {
+  color: var(--hostom-white);
+}
+.choose-us-one .choose-us-one__feature__icon {
+  color: var(--hostom-base);
+}
+.choose-us-one .hostom-btn {
+  color: var(--hostom-base);
+}
+.choose-us-one .hostom-btn::before {
+  background-color: var(--hostom-base);
+}
+.choose-us-one .hostom-btn:hover {
+  color: var(--hostom-white);
+}
+
+.cta-three {
+  background: var(--hostom-black3);
+}
+.cta-three .cta-three__title {
+  color: var(--hostom-base);
+}
+.cta-three .hostom-btn {
+  color: var(--hostom-base);
+}
+.cta-three .hostom-btn::before {
+  background-color: var(--hostom-base);
+}
+.cta-three .hostom-btn:hover {
+  color: var(--hostom-white);
+}
+
+.blog-card-three,
+.blog-card {
+  background: var(--hostom-black3);
+}
+.blog-card-three .blog-card__title,
+.blog-card .blog-card__title {
+  color: var(--hostom-base);
+}
+
+.blog-card:hover .blog-card__title::after {
+  opacity: 0.2;
+  background: var(--hostom-white);
+}
+
+.main-footer {
+  background: var(--hostom-black3);
+}
+.main-footer .footer-widget__title,
+.main-footer .main-footer__inner-social a,
+.main-footer button[type=submit] {
+  color: var(--hostom-base);
+}
+.main-footer button[type=submit]:hover {
+  color: var(--hostom-white);
+}
+/*# sourceMappingURL=hostom-dark.css.map */
