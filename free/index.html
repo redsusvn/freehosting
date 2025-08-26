@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="layerdrops">
+    <meta name="description" content="Get powerful, completely free web hosting for your project. FreeHosting offers 5GB SSD storage, unlimited bandwidth, and a free subdomain. No ads, no fees. Claim your account now!">
+
+    <title>Register page || FreeHosting - Free Non-Profit Web Hosting</title>
+
+    <link rel="shortcut icon" href="https://pixydrops.com/hostomhtml/assets/images/favicons/apple-touch-icon.png" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://pixydrops.com/hostomhtml/assets/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://pixydrops.com/hostomhtml/assets/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://pixydrops.com/hostomhtml/assets/images/favicons/favicon-16x16.png">
+    <link rel="manifest" href="https://pixydrops.com/hostomhtml/assets/images/favicons/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://pixydrops.com/hostomhtml/assets/vendors/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://pixydrops.com/hostomhtml/assets/vendors/bootstrap-select/bootstrap-select.min.css">
+    <link rel="stylesheet" href="https://pixydrops.com/hostomhtml/assets/vendors/animate/animate.min.css">
+    <link rel="stylesheet" href="https://pixydrops.com/hostomhtml/assets/vendors/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="https://pixydrops.com/hostomhtml/assets/vendors/jquery-ui/jquery-ui.css">
+    <link rel="stylesheet" href="https://pixydrops.com/hostomhtml/assets/vendors/jarallax/jarallax.css">
+    <link rel="stylesheet" href="https://pixydrops.com/hostomhtml/assets/vendors/jquery-magnific-popup/jquery.magnific-popup.css">
+    <link rel="stylesheet" href="https://pixydrops.com/hostomhtml/assets/vendors/nouislider/nouislider.min.css">
+    <link rel="stylesheet" href="https://pixydrops.com/hostomhtml/assets/vendors/nouislider/nouislider.pips.css">
+    <link rel="stylesheet" href="https://pixydrops.com/hostomhtml/assets/vendors/hostom-icons/style.css">
+    <link rel="stylesheet" href="https://pixydrops.com/hostomhtml/assets/vendors/owl-carousel/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://pixydrops.com/hostomhtml/assets/vendors/owl-carousel/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://pixydrops.com/hostomhtml/assets/vendors/slick/slick.css">
+
+    <link rel="stylesheet" href="https://pixydrops.com/hostomhtml/assets/css/hostom.css">
+</head>
+
+<body class="custom-cursor">
+
+    <div class="custom-cursor__cursor"></div>
+    <div class="custom-cursor__cursor-two"></div>
+
+    <div class="preloader">
+        <div class="preloader__image" style="background-image: url(https://pixydrops.com/hostomhtml/assets/images/loader.png);"></div>
+    </div>
+    <div class="page-wrapper">
+        <header class="main-header--six sticky-header sticky-header--normal">
+            <div class="container-fluid">
+                <div class="main-header__inner">
+                    <div class="main-header__logo">
+                        <a href="/">
+                            <img src="https://i.imgur.com/zRYG67h.jpeg" alt="hostom HTML" width="158">
+                        </a>
+                    </div>
+                    <nav class="main-header__nav main-menu">
+                        <ul class="main-menu__list">
+
+                            <li>
+                                <a href="/">Home</a>
+                            </li>
+                            <li>
+                                <a href="/">Service</a>
+                            </li>
+                            <li>
+                                <a href="/">Contact</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="main-header__right">
+                        <a href="https://cpanel.lightnode.qzz.io/" class="main-header__contact__btn hostom-btn">Login Portal</a>
+                        <div class="mobile-nav__btn mobile-nav__toggler">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section class="page-header">
+            <div class="page-header__bg"></div>
+            <div class="container">
+                <h2 class="page-header__title">Register Page</h2>
+                <ul class="nionx-breadcrumb list-unstyled">
+                    <li><a href="index-2.html">Home</a></li>
+                    <li><span>Shop</span></li>
+                </ul>
+            </div>
+        </section>
+        <section class="checkout-page">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6">
+                        <div class="checkout-page__billing-address">
+                            <h2 class="checkout-page__billing-address__title">Hosting details</h2>
+                            <form class="checkout-page__form" id="hosting-form">
+                                <div class="row">
+                                    <div class="col-xl-12">
+                                        <div class="checkout-page__input-box">
+                                            <input type="text" id="username" name="username" maxlength="8" placeholder="Desired Username (8 characters max)" required="">
+                                            <p style="font-size: 12px; color: #7f7f7f; margin-top: 8px;">
+                                                This will be your subdomain (e.g., <strong>your-username</strong>.fwh.no.kg). Use only letters and numbers. The domain you type here is just temporary, you can create your custom and more awesome subdomain inside the control panel by using the "Sub Domain" option.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-12">
+                                        <div class="login-page__form-input-box">
+                                            <input type="password" id="password" name="password" placeholder="Password" required="">
+                                            <p style="font-size: 12px; color: #7f7f7f; margin-top: 8px;">
+                                                Choose a strong password to keep your account secure.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-12">
+                                        <div class="checkout-page__input-box">
+                                            <input type="email" id="email" name="email" placeholder="Your Email Address" required="">
+                                            <p style="font-size: 12px; color: #7f7f7f; margin-top: 8px;">
+                                                This email is for password resets. No spam, ever. (Also no verification so you can type whatever thing you want in here)
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-12">
+                                        <div class="checkout-page__input-box">
+                                            <select id="subdomain" name="subdomain" style="display: block; width: 100%; height: 60px; padding: 15px 30px; border: 1px solid #e3e3e3; border-radius: 5px; background-color: transparent; color: #7f7f7f;">
+                                                <option>lightnode.qzz.io</option>
+                                                <option>krl.dpdns.org</option>
+                                                <option>adz.qzz.io</option>
+                                                <option selected>fwh.no.kg</option>
+                                                <option>acn.qzz.io</option>
+                                            </select>
+                                            <p style="font-size: 12px; color: #7f7f7f; margin-top: 8px;">
+                                                Choose the domain extension for your free website. More subdomain will be available inside the control panel by using the "Sub Domain" option.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6">
+                        <div class="checkout-page__shipping-address">
+                            <h2 class="checkout-page__shipping-address__title">Additional Information</h2>
+                            <form class="checkout-page__form">
+                                <div class="row">
+                                    <div class="col-xl-12">
+                                        <div class="checkout-page__input-box">
+                                            <textarea placeholder="nah this box isn't do anything lmao" name="message"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="checkout-page__details" bis_skin_checked="1">
+                    <h2 class="checkout-page__details__title">Read and agree to our TOS and Privacy Policy</h2>
+                    <div class="checkout-page__details__check-box" bis_skin_checked="1">
+                        <input type="checkbox" name="skipper4" id="skipper4" checked="">
+                        <label for="skipper4"><p>I have read the Byet's
+                            <a href="https://byet.host/terms-of-service" target="_blank" rel="noopener noreferrer">Terms Of Service</a> and
+                            <a href="https://byet.host/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a> and agreed to it.
+                        </p><span></span></label>
+                    </div>
+                </div>
+                <div class="checkout-page__your-order">
+                    <h2 class="checkout-page__your-order__title">Your Order</h2>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6">
+                            <table class="checkout-page__order-table">
+                                <thead class="order_table_head">
+                                    <tr>
+                                        <th>Product</th>
+                                        <th class="right">Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="pro__title">Free Hosting 5GB SSD - Plan F5</td>
+                                        <td class="pro__price">$0.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="pro__title">9999999999999 months hosting extended usage time for F5</td>
+                                        <td class="pro__price">$0.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="pro__title">Setup Fees</td>
+                                        <td class="pro__price">$0.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="pro__title">Total</td>
+                                        <td class="pro__price">$0.00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="checkout-page__payment">
+                                <div class="checkout-page__payment__item">
+                                    <h3 class="checkout-page__payment__title">Free Product Payment Gateway</h3>
+                                    <div class="checkout-page__payment__content" style="display: none;">
+                                        Choose this gateway to get your free hosting (cuz this is $0 product lmao u have no choice to use this option)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-right d-flex justify-content-start">
+                                <button type="submit" form="hosting-form" class="hostom-btn hostom-btn--secondary">
+                                    <span>Place your Order</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="main-footer main-footer__two">
+            <div class="main-footer__two__bg" style="background-image: url(https://pixydrops.com/hostomhtml/assets/images/shapes/footer-shape-2-1.png);"></div>
+
+            <div class="main-footer__middle main-footer__middle--two">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-md-6 col-xl-4">
+                            <div class="footer-widget--info footer-widget__info__two">
+                                <a href="#" class="footer-widget__logo">
+                                    <img src="https://sussydomain.eu.org/FreeHosting.png" width="158" alt="footer logo">
+                                </a>
+                                <p class="footer-widget__text">A non-profit project dedicated to an open and accessible web for everyone. This project is a part of MyOwnFreeHost - a free hosting provider made by Byet.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-2">
+                            <div class="footer-widget--company footer-widget__company__two">
+                                <h4 class="footer-widget__title">FreeHosting</h4>
+                                <ul class="list-unstyled footer-widget__links">
+                                    <li class="footer-widget__links__item"><a href="https://cpanel.lightnode.qzz.io/">Login Portal</a></li>
+                                    <li class="footer-widget__links__item"><a href="/free">Register page</a></li>
+                                    <li class="footer-widget__links__item"><a href="https://byet.host/terms-of-service">Terms Of Services</a></li>
+                                    <li class="footer-widget__links__item"><a href="https://byet.host/privacy-policy">Privacy Policy</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-3">
+                            <div class="footer-widget--about footer-widget__about__two">
+                                <h4 class="footer-widget__title">Contact</h4>
+                                <ul class="list-unstyled footer-widget__info">
+                                    <li class="footer-widget__info__item"> <span class="footer-widget__info__item__text">Important contact only, no support provided.</span></li>
+                                    <li class="footer-widget__info__item"> <i class="icon-phone-1" aria-hidden="true"></i> <a href="tel:+8801775-338747">@redsus.vn on Discord</a></li>
+                                    <li class="footer-widget__info__item"> <a href="mailto:hostsieure.services@gmail.com">hostsieure.services@gmail.com</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-3">
+                            <div class="footer-widget--right footer-widget__right__two">
+                                <h4 class="footer-widget__title">Newsletter (not available)</h4>
+                                <form action="#" data-url="MAILCHIMP_FORM_URL" class="footer-widget__newsletter mc-form">
+                                    <input type="email" name="EMAIL" placeholder="Email Address">
+                                    <button type="submit"><i class="icon-plan"></i></button>
+                                </form>
+                                <div class="mc-form__response"></div>
+                                <p class="footer-widget__text"><i class="far fa-check-circle"></i>I agree to all your terms and policies</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-footer__bottom">
+                <div class="container">
+                    <div class="main-footer__bottom__inner">
+                        <p class="main-footer__copyright"> &copy; © 2025 FreeHosting. Built with passion by @redsus.vn. Powered by iFastNet (Hosting provider), Render (Web service provider) and CloudFlare (Anti-ddos and DNS management).</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <div class="modal fade" id="statusModal" tabindex="-1" role="dialog" aria-labelledby="statusModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="background-color: #1a202c; color: #fff; border-radius: 1rem;">
+                <div class="modal-body p-4">
+
+                    <div id="screen-loading" style="display: none;">
+                        <div class="p-4 text-center">
+                            <svg class="animate-spin h-12 w-12 text-orange-500 mx-auto" style="color: #f97316; height: 3rem; width: 3rem; margin: auto;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            <h3 class="h4 font-weight-bold text-white mt-4">Creating Your Account...</h3>
+                            <p class="text-secondary mt-2">Please wait a moment while we set things up.</p>
+                        </div>
+                    </div>
+
+                    <div id="screen-success" style="display: none;">
+                        <div class="p-4 text-center">
+                            <div class="mx-auto d-flex align-items-center justify-content-center" style="width: 5rem; height: 5rem; border-radius: 50%; background-color: rgba(16, 185, 129, 0.2); border: 1px solid rgba(16, 185, 129, 0.5);">
+                                <svg style="width: 3rem; height: 3rem; color: #10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <h3 class="h3 font-weight-bold text-white mt-4">Congratulations!</h3>
+                            <p class="text-secondary mt-2 mb-4">Your free hosting account is ready. Here are your details:</p>
+                            <div class="text-left p-3 rounded" style="background-color: rgba(55, 65, 81, 0.5);">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <div>
+                                        <span class="small text-secondary">Username:</span>
+                                        <p id="success-username" class="font-weight-bold text-white" style="font-family: monospace;"></p>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span class="small text-secondary">Password:</span>
+                                        <p id="success-password" class="font-weight-bold text-white" style="font-family: monospace;"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <a id="success-panel-link" href="#" target="_blank" class="btn btn-primary btn-block hostom-btn hostom-btn--secondary">
+                                    Go to Control Panel
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="screen-error" style="display: none;">
+                        <div class="p-4 text-center">
+                            <div class="mx-auto d-flex align-items-center justify-content-center" style="width: 5rem; height: 5rem; border-radius: 50%; background-color: rgba(239, 68, 68, 0.2); border: 1px solid rgba(239, 68, 68, 0.5);">
+                                <svg style="width: 3rem; height: 3rem; color: #ef4444;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                            </div>
+                            <h3 class="h3 font-weight-bold text-white mt-4">Something Went Wrong</h3>
+                            <p class="text-secondary mt-2 mb-4">We couldn't create your account. Please double-check your information. The username might already be taken, or you may have used invalid characters.</p>
+                            <div class="mt-4">
+                                <button id="error-back-btn" class="btn btn-warning btn-block hostom-btn">
+                                    Try Again
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://pixydrops.com/hostomhtml/assets/vendors/jquery/jquery-3.7.0.min.js"></script>
+    <script src="https://pixydrops.com/hostomhtml/assets/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://pixydrops.com/hostomhtml/assets/vendors/bootstrap-select/bootstrap-select.min.js"></script>
+    <script src="https://pixydrops.com/hostomhtml/assets/vendors/jarallax/jarallax.min.js"></script>
+    <script src="https://pixydrops.com/hostomhtml/assets/vendors/jquery-ui/jquery-ui.js"></script>
+    <script src="https://pixydrops.com/hostomhtml/assets/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js"></script>
+    <script src="https://pixydrops.com/hostomhtml/assets/vendors/jquery-appear/jquery.appear.min.js"></script>
+    <script src="https://pixydrops.com/hostomhtml/assets/vendors/jquery-circle-progress/jquery.circle-progress.min.js"></script>
+    <script src="https://pixydrops.com/hostomhtml/assets/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="https://pixydrops.com/hostomhtml/assets/vendors/jquery-validate/jquery.validate.min.js"></script>
+    <script src="https://pixydrops.com/hostomhtml/assets/vendors/nouislider/nouislider.min.js"></script>
+    <script src="https://pixydrops.com/hostomhtml/assets/vendors/hover-extended-magnify/extm.min.js"></script>
+    <script src="https://pixydrops.com/hostomhtml/assets/vendors/wnumb/wNumb.min.js"></script>
+    <script src="https://pixydrops.com/hostomhtml/assets/vendors/owl-carousel/js/owl.carousel.min.js"></script>
+    <script src="https://pixydrops.com/hostomhtml/assets/vendors/slick/slick.min.js"></script>
+    <script src="https://pixydrops.com/hostomhtml/assets/vendors/wow/wow.js"></script>
+    <script src="https://pixydrops.com/hostomhtml/assets/vendors/imagesloaded/imagesloaded.min.js"></script>
+    <script src="https://pixydrops.com/hostomhtml/assets/vendors/isotope/isotope.js"></script>
+    <script src="https://pixydrops.com/hostomhtml/assets/vendors/countdown/countdown.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
+    <script src="https://pixydrops.com/hostomhtml/assets/vendors/jquery-circleType/jquery.circleType.js"></script>
+    <script src="https://pixydrops.com/hostomhtml/assets/vendors/jquery-lettering/jquery.lettering.min.js"></script>
+    <script src="https://pixydrops.com/hostomhtml/assets/js/hostom.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hostingForm = document.getElementById('hosting-form');
+            const statusModalElement = document.getElementById('statusModal');
+            const statusModal = new bootstrap.Modal(statusModalElement, {
+                keyboard: false,
+                backdrop: 'static'
+            });
+
+            const loadingScreen = document.getElementById('screen-loading');
+            const successScreen = document.getElementById('screen-success');
+            const errorScreen = document.getElementById('screen-error');
+            const errorBackButton = document.getElementById('error-back-btn');
+
+            const showScreen = (screenName) => {
+                loadingScreen.style.display = 'none';
+                successScreen.style.display = 'none';
+                errorScreen.style.display = 'none';
+
+                const screenToShow = document.getElementById(`screen-${screenName}`);
+                if (screenToShow) {
+                    screenToShow.style.display = 'block';
+                }
+                statusModal.show();
+            };
+            
+            hostingForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                showScreen('loading');
+
+                const formData = new FormData(hostingForm);
+                const username = formData.get('username');
+                const password = formData.get('password');
+                const email = formData.get('email');
+                const subdomain = formData.get('subdomain');
+
+                try {
+                    const apiUrl = `https://api.freehosting.qzz.io/createhost?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}&email=${encodeURIComponent(email)}&subdomain=${encodeURIComponent(subdomain)}`;
+                    const response = await fetch(apiUrl);
+
+                    if (!response.ok) {
+                        throw new Error(`Network response was not ok, status: ${response.status}`);
+                    }
+
+                    const data = await response.json();
+
+                    if (data && data.result === 'success') {
+                        document.getElementById('success-username').textContent = data.username;
+                        document.getElementById('success-password').textContent = data.password;
+                        const panelLink = document.getElementById('success-panel-link');
+                        panelLink.href = data.login_panel;
+                        
+                        showScreen('success');
+                    } else {
+                         throw new Error(data.message || 'API returned an error');
+                    }
+
+                } catch (error) {
+                    console.error('API call failed:', error);
+                    showScreen('error');
+                }
+            });
+            
+            errorBackButton.addEventListener('click', () => {
+                statusModal.hide();
+            });
+        });
+    </script>
+</body>
+
+</html>
