@@ -293,7 +293,9 @@
                     <div id="screen-success" style="display: none;">
                         <div class="p-4 text-center">
                             <div class="mx-auto d-flex align-items-center justify-content-center" style="width: 5rem; height: 5rem; border-radius: 50%; background-color: rgba(16, 185, 129, 0.2); border: 1px solid rgba(16, 185, 129, 0.5);">
-                                <svg style="width: 3rem; height: 3rem; color: #10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <svg style="width: 3rem; height: 3rem; color: #10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
                             </div>
                             <h3 class="h3 font-weight-bold text-white mt-4">Congratulations!</h3>
                             <p class="text-secondary mt-2 mb-4">Your free hosting account is ready. Here are your details:</p>
@@ -301,13 +303,23 @@
                                 <div class="d-flex justify-content-between align-items-center mb-2">
                                     <div>
                                         <span class="small text-secondary">Username:</span>
-                                        <p id="success-username" class="font-weight-bold text-white" style="font-family: monospace;"></p>
+                                        <div class="d-flex align-items-center">
+                                            <p id="success-username" class="font-weight-bold text-white mb-0" style="font-family: monospace;"></p>
+                                            <button class="btn btn-sm btn-outline-light ml-2" onclick="copyToClipboard('success-username')">
+                                                <i class="far fa-copy"></i>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div>
                                         <span class="small text-secondary">Password:</span>
-                                        <p id="success-password" class="font-weight-bold text-white" style="font-family: monospace;"></p>
+                                        <div class="d-flex align-items-center">
+                                            <p id="success-password" class="font-weight-bold text-white mb-0" style="font-family: monospace;"></p>
+                                            <button class="btn btn-sm btn-outline-light ml-2" onclick="copyToClipboard('success-password')">
+                                                <i class="far fa-copy"></i>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -315,6 +327,7 @@
                                 <a id="success-panel-link" href="#" target="_blank" class="btn btn-primary btn-block hostom-btn hostom-btn--secondary">
                                     Go to Control Panel
                                 </a>
+                                <button class="btn btn-secondary btn-block mt-2" data-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>
@@ -364,6 +377,30 @@
     <script src="https://freehosting.qzz.io/assets/js/hostom.js"></script>
 
     <script>
+
+    function copyToClipboard(elementId) {
+        const element = document.getElementById(elementId);
+        const textToCopy = element.textContent || element.innerText;
+    
+        if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(textToCopy)
+                .then(() => {
+                    console.log('Text copied to clipboard!');
+                })
+                .catch(err => {
+                    console.error('Failed to copy text: ', err);
+                });
+        } else {
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            console.log('Text copied using fallback method.');
+        }
+    }
+        
         document.addEventListener('DOMContentLoaded', () => {
             const hostingForm = document.getElementById('hosting-form');
             const statusModalElement = document.getElementById('statusModal');
