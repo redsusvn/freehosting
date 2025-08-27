@@ -35,6 +35,7 @@
     <link rel="stylesheet" href="https://freehosting.qzz.io/assets/vendors/slick/slick.css">
 
     <link rel="stylesheet" href="https://freehosting.qzz.io/assets/css/hostom.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body class="custom-cursor">
@@ -135,6 +136,11 @@
                                             <p style="font-size: 12px; color: #7f7f7f; margin-top: 8px;">
                                                 Choose the domain extension for your free website. More subdomain will be available inside the control panel by using the "Sub Domain" option.
                                             </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-12">
+                                        <div class="checkout-page__input-box" style="margin-top: 20px; margin-bottom: 20px;">
+                                            <div class="g-recaptcha" data-sitekey="6LcrHLQrAAAAAHADbq3EbmNxqnsVj8XVE1iwNiqE"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -425,6 +431,12 @@
             
             hostingForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
+                const captchaResponse = grecaptcha.getResponse();
+                if (!captchaResponse) {
+                    alert('Please complete the CAPTCHA before place your order.');
+                    return; 
+                }
+                
                 showScreen('loading');
 
                 const formData = new FormData(hostingForm);
@@ -434,7 +446,7 @@
                 const subdomain = formData.get('subdomain');
 
                 try {
-                    const apiUrl = `https://api.freehosting.qzz.io/createhost?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}&email=${encodeURIComponent(email)}&subdomain=${encodeURIComponent(subdomain)}`;
+                    const apiUrl = `https://api.freehosting.qzz.io/createhost?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}&email=${encodeURIComponent(email)}&subdomain=${encodeURIComponent(subdomain)}&captcha=${encodeURIComponent(captchaResponse)}`;
                     const response = await fetch(apiUrl);
 
                     if (!response.ok) {
