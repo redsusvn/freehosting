@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -448,6 +449,11 @@ Further instructions are available in our control panel.</p>
                             </select>
                             <p class="text-xs text-gray-500 mt-1">Choose the domain extension for your free website.</p>
                         </div>
+                        <div>
+                            <label for="captcha" class="block text-sm font-medium text-gray-300 mb-1">Verify you are human</label>
+                            <div class="g-recaptcha" data-sitekey="6LcrHLQrAAAAAHADbq3EbmNxqnsVj8XVE1iwNiqE"></div>
+                            <p class="text-xs text-gray-500 mt-1">Click on this check box to verify you are human.</p>
+                        </div>
                         <div class="pt-4">
                             <button type="submit" class="w-full text-center block glow-btn bg-orange-500 text-white font-bold py-3 px-8 rounded-lg hover:bg-orange-600 transition-all duration-300 shadow-lg shadow-orange-500/30 text-lg">
                                 Claim My Free Hosting
@@ -591,6 +597,11 @@ Further instructions are available in our control panel.</p>
 
             hostingForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
+                const captchaResponse = grecaptcha.getResponse();
+                if (!captchaResponse) {
+                    alert('Please complete the CAPTCHA before place your order.');
+                    return; 
+                }
                 showScreen('loading');
 
                 const formData = new FormData(hostingForm);
@@ -600,7 +611,7 @@ Further instructions are available in our control panel.</p>
                 const subdomain = formData.get('subdomain');
                 
                 try {
-                    const apiUrl = `https://api.freehosting.qzz.io/createhost?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}&email=${encodeURIComponent(email)}&subdomain=${encodeURIComponent(subdomain)}`;
+                    const apiUrl = `https://api.freehosting.qzz.io/createhost?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}&email=${encodeURIComponent(email)}&subdomain=${encodeURIComponent(subdomain)}&captcha=${encodeURIComponent(captchaResponse)}`;
                     const response = await fetch(apiUrl);
                     if (!response.ok) {
                         throw new Error('Broken api or network error');
@@ -727,5 +738,6 @@ Further instructions are available in our control panel.</p>
 </body>
 
 </html>
+
 
 
